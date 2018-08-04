@@ -28,7 +28,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 SECRET_KEY = 'yzulcpjb7!d3q0p#=)l$blo&4(*ymu+0i&7#hx12c3j5kawl%='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['travel-safety.herokuapp.com', '127.0.0.1']
 
@@ -111,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 #change config
-DATABASES['default'].update(dj_database_url.config(conn_max_age=600))
+DATABASES['default'].update(dj_database_url.config(conn_max_age=500))
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
