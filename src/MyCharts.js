@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import {Form, FormGroup, Label } from 'reactstrap';
-import { Bar, Chart } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 
 class MyCharts extends Component {
   constructor(props) {
@@ -48,7 +48,6 @@ class MyCharts extends Component {
       return colorArr;
     }
     return this.colorGen(colorArr, red - 5, parseInt(green + (50 - count)/5), blue + 3, count + 1);
-
   }
 
   cityColorGen = (colorArr, red, green, blue, count) => {
@@ -60,7 +59,6 @@ class MyCharts extends Component {
       return this.cityColorGen(colorArr, red - 5, green + 150, blue - 1, count + 1);
     }
     return this.cityColorGen(colorArr, red - 5, green + 2, blue - 1, count + 1);
-
   }
 
   render() {
