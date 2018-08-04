@@ -1,0 +1,30 @@
+{
+  "name": "maps_and_stats",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "chart.js": "^2.7.2",
+    "jshint": "^2.9.5",
+    "react": "^16.4.1",
+    "react-bootstrap": "^0.32.1",
+    "react-chartjs-2": "^2.7.4",
+    "react-dom": "^16.4.1",
+    "react-loading-screen": "0.0.17",
+    "react-scripts": "1.1.4",
+    "react-select": "^2.0.0",
+    "reactstrap": "^6.3.1",
+    "yarn": "^1.9.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "postinstall": "npm run build"
+  },
+  "engine": {
+    "node": "8.11.3",
+    "npm": "5.6.0"
+  }
+}
