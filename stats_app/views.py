@@ -9,7 +9,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import  status
 from .models import State, City
-from .serializers import StateSerializer, CitySerializer, GunshotSerializer
+from .serializers import StateSerializer, CitySerializer
 import math
 import decimal
 # Create your views here.
@@ -30,9 +30,3 @@ class CityList(APIView):
         cities = City.objects.all()
         serializer = CitySerializer(cities, many=True)
         return Response(serializer.data)
-
-class GunshotList(APIView):
-    def get(self, request):
-        gunshots = Gunshot.objects.all()
-        serializer = GunshotSerializer(gunshots, many=True)
-        return JsonResponse(serializer.data, safe=False)
