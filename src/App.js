@@ -23,14 +23,16 @@ class App extends Component {
     }
   }
   componentDidMount() {
-    axios.get('http://127.0.0.1:8000/states/')
+    var path = String(window.location.href)
+    console.log(path)
+    axios.get(path + 'states/')
     .then(res => {
       this.setState({ 
         us_states: res.data,
         stateList: res.data.map( (us_state) => us_state.name).sort()
       })
     });
-    axios.get('http://127.0.0.1:8000/cities/')
+    axios.get(path + 'cities/')
     .then(res => {
       this.setState({ 
         us_cities: res.data,
