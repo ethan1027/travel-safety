@@ -23,7 +23,10 @@ class App extends Component {
     }
   }
   componentDidMount() {
-    var path = String(window.location.href)
+    var path = 'https://travel-safety.herokuapp.com/'
+    if(window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      path = 'http://127.0.0.1:8000/'
+    }
     console.log(path)
     axios.get(path + 'states/')
     .then(res => {
