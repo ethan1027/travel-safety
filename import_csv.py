@@ -4,8 +4,8 @@ import django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'travel_safety.settings')
 path = 'E:\Coding Repository\VisualCodeProjects\gun_stats_senior_project\gun-violence-data.csv'
 django.setup()
-from stats_app.models import Gunshot
-dfs = pd.read_csv(path)
+from stats_app.models import State
+df_alldata = pd.read_csv(path)
 dfs['date'] = pd.to_datetime(dfs['date'])
 print(dfs.dtypes)
 gunshot_list = []
