@@ -19,10 +19,12 @@ class App extends Component {
       cityRank: 1,
       cityIncidents: 10814,
       stateList: [],
-      cityList: []
+      cityList: [],
+      shortCityList: []
     }
   }
   componentDidMount() {
+    console.log('search mounted')
     var path = 'https://travel-safety.herokuapp.com/'
     if(window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
       path = 'http://127.0.0.1:8000/'
@@ -51,7 +53,7 @@ class App extends Component {
     var searchValue = document.getElementById("stateSelect").value;
     this.setState({stateName: String(searchValue)});
     var foundObject = this.state.us_states.find(function(element) {
-      return element.name == searchValue;
+      return element.name === searchValue;
     })
     this.setState({ 
       stateRank: foundObject.rank, 
@@ -71,8 +73,16 @@ class App extends Component {
   }
 
   render() {
+    console.log('search rendered');
     var state_names = this.state.stateList.map( us_state => <option value={us_state}>{us_state}</option>);
-    var city_names = this.state.cityList.map( us_city => <option value={us_city}>{us_city}</option>);
+    var city_names = this.state.cityList.map( 
+      (us_city) => {
+        if(String(us_city).includes(this.state.stateName)) {
+          return <option value={us_city}>{us_city}</option>;
+        } 
+      }
+    );
+    city_names = city_names.filter(Boolean);
     return (
       <div className="App">
         <header className="App-header">
@@ -105,7 +115,7 @@ class App extends Component {
                 
                 <hr className="my-2" />
                 <h2 className="display-4">{this.state.cityName}</h2>
-                <p className="lead">is the top {this.state.cityRank} dangerous city/county out of around 17,000 municipalities in the U.S.</p>
+                <p className="lead">is the top {this.state.cityRank} dangerous city out of around 19,354 incorporated cities in the U.S.</p>
                 <p className="lead">has a total of {this.state.cityIncidents} gun-shot incidents from 2014 to 2018.</p>
                 
               </Jumbotron>
