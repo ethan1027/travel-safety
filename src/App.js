@@ -115,7 +115,7 @@ class App extends Component {
                 
                 <hr className="my-2" />
                 <h2 className="display-4">{this.state.cityName}</h2>
-                <p className="lead">is the top {this.state.cityRank} dangerous city out of around 19,354 incorporated cities in the U.S.</p>
+                <p className="lead">is the top {this.state.cityRank} dangerous city out of 19,354 incorporated cities in the U.S.</p>
                 <p className="lead">has a total of {this.state.cityIncidents} gun-shot incidents from 2014 to 2018.</p>
                 
               </Jumbotron>
