@@ -115,11 +115,11 @@ class MyCharts extends Component {
     }
 
     //city total incidents
-    const citySorted = this.state.us_cities.slice(0, 50).sort(
+    const citySorted = this.state.us_cities.sort(
       function(a, b) {
         return b.total_incidents - a.total_incidents;
       }
-    )
+    ).slice(0, 50)
     var cityData = {
       labels: citySorted.map( (us_city) => us_city.name),
       datasets: [{
